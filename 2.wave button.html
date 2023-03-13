@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>波纹按钮</title>
+    <style>
+        button {
+            position: relative;
+            margin: 50px;
+            width: 100px;
+            height: 50px;
+            background-color: lightblue;
+            border-radius: 20px;
+            color: #fff;
+            line-height: 50px;
+            font-size: 20px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 700ms;
+        }
+
+        button:hover {
+            transform: scale(1.2);
+        }
+
+        button:hover::before,
+        button:hover::after {
+            position: absolute;
+            content: '';
+            width: 50%;
+            height: 50%;
+            top: 25%;
+            left: 25%;
+            border: 2px solid lightblue;
+            border-radius: 20px;
+            animation: wave_scale 1s ease-out infinite;
+            animation-delay: 0.1s;
+            z-index: -1;
+        }
+
+        button:hover::after {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes wave_scale {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(3, 3);
+                opacity: 0;
+            }
+        }
+
+        button:focus::before,
+        button:focus::after {
+            display: none;
+        }
+
+        button:focus {
+            color: #0087BD;
+        }
+    </style>
+</head>
+
+<body>
+    <button>波纹按钮</button>
+</body>
+
+</html>
