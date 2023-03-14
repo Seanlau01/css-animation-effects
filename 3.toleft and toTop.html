@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toTop and toLeft</title>
+    <style>
+        .div1 {
+  width:100px;
+  height:200px;
+  background:#9FEFFF;
+  position: relative;
+}
+.div2 {
+  width:0;
+  height:100px;
+  background:#5FD5FF;
+  position: absolute;
+  right:0;
+  top:0;
+   animation:toLeft 2s ease infinite;
+}
+.div3 {
+  width:100px;
+  height:0;
+  background:#8591EC;
+  position: absolute;
+  bottom:0;
+  left:0;
+  z-index:2;
+  animation:toTop 2s ease infinite;
+}
+@keyframes toLeft {
+  from {
+   width:0px;
+  }
+  to {
+    width:100px;
+  }
+}
+@keyframes toTop {
+  from {
+    height:0px;
+  }
+  to {
+    height:100px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2"></div>
+        <div class="div3"></div>
+      </div>
+</body>
+</html>
